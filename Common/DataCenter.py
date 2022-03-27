@@ -1,4 +1,5 @@
 import pandas as pd
+import random
 import sklearn
 from sklearn.model_selection import train_test_split
 
@@ -19,6 +20,10 @@ class data_center():
         self.X_train, self.X_noisy, self.y_train, self.y_noisy = \
             train_test_split(X1, y1, test_size=noisy_size / (1-test_size), random_state=self.rseed, stratify=y1)
 
+        # Change labels of noisy set
+        random.seed(self.rseed)
+        self.y_noisy = list(map(lambda x: (int(x) + random.randint(1, 3)) % 4, self.y_noisy))
+
     # Get test set
     def get_test(self, size = None):
         return self.__get_sub_set(self.X_test, self.y_test, size)
@@ -27,10 +32,8 @@ class data_center():
     def get_test_fixedsize(self, intSize):
         return self.get_test(intSize/self.get_test_len())
 
-
     # Get noisy set
     def get_noisy(self, size = None):
-        # Labels not changed, to be done...
         return self.__get_sub_set(self.X_noisy, self.y_noisy, size)
 
     # Get train set
@@ -40,7 +43,6 @@ class data_center():
     # get train data with fixed size
     def get_train_fixedsize(self, intSize):
         return self.get_train(intSize/self.get_train_len())
-
 
     def get_len(self):
         return len(self.df)
