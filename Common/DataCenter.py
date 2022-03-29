@@ -1,6 +1,5 @@
 import pandas as pd
 import random
-import sklearn
 from sklearn.model_selection import train_test_split
 
 class data_center():
