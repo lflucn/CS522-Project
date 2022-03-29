@@ -17,8 +17,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
-from sklearn.svm import LinearSVC
-from sklearn.svm import LinearSVC
 from Common.DataCenter import data_center
 
 ModelsPerformance = {}
