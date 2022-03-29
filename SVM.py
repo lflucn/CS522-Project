@@ -19,7 +19,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
 from sklearn.svm import LinearSVC
 from sklearn.svm import LinearSVC
-from DataCenter import data_center
+from Common.DataCenter import data_center
 
 ModelsPerformance = {}
 # Creating method for model evaluation
